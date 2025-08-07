@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>:)</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #ff69b4;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 2px solid #ffb6c1;
+      border-radius: 8px;
+      width: 60%;
+      max-width: 300px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Play using laptop 🌸</h1>
+
+  <div class="question">
+    <p>1. What is my birth year (in numbers)?</p>
+    <input type="text" id="q1" />
+  </div>
+
+  <div class="question">
+    <p>2. What is my last name?</p>
+    <input type="text" id="q2" />
+  </div>
+
+  <div class="question">
+    <p>3. My fav fruit?</p>
+    <input type="text" id="q3" />
+  </div>
+
+  <div class="question">
+    <p>4. What day was I born (eg. monday, tuesday..)?</p>
+    <input type="text" id="q4" />
+  </div>
+
+  <div class="question">
+    <p>5. What was my name before Swechha (not on paper)? Just type the initial and last letter in all Caps?</p>
+    <input type="text" id="q5" />
+  </div>
+
+   <div class="question">
+    <p>6. 6th digit of my phone number (in numbers)?</p>
+    <input type="text" id="q6" />
+  </div>
+
+  <div class="question">
+    <p>7. Initials of my fav artist (first and last name) ?</p>
+    <input type="text" id="q7" />
+  </div>
+
+   <div class="question">
+    <p>8. Last letter of the highschool I went to ?</p>
+    <input type="text" id="q8" />
+  </div>
+
+  <button onclick="checkAnswers()">Submit Answers</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      // Answers (lowercase)
+      const answers = ['2003', 'shrestha', 'strawberry', 'wednesday', 'ra', '7', 'ag','c'];
+      
+      // Get input values
+      const userAnswers = [
+        document.getElementById('q1').value.trim().toLowerCase(),
+        document.getElementById('q2').value.trim().toLowerCase(),
+        document.getElementById('q3').value.trim().toLowerCase(),
+        document.getElementById('q4').value.trim().toLowerCase(),
+        document.getElementById('q5').value.trim().toLowerCase(),
+        document.getElementById('q6').value.trim().toLowerCase(),
+         document.getElementById('q7').value.trim().toLowerCase(),
+          document.getElementById('q8').value.trim().toLowerCase()
+      ];
+
+      // Calculate score
+      let score = 0;
+      for (let i = 0; i < answers.length; i++) {
+        if (userAnswers[i] === answers[i]) {
+          score++;
+        }
+      }
+
+      // Show result
+      const result = document.getElementById('result');
+      if (score === 8) {
+        result.innerHTML = `🎉 Bro etti focus studies ma gareko bhaye? you could've used github lol🎉`;
+        result.style.color = 'green';
+      } else {
+        result.innerHTML = `Oops! You got ${score} out of 8 correct. Try again to reveal the message!`;
+        result.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
